@@ -1,0 +1,47 @@
+{
+  "name": "coffee:blur",
+  "sourceFrag": "src/blur.fsh",
+  "sourceVert": null,
+  "samplers": [
+    "DiffuseSampler"
+  ],
+  "passes": [
+    {
+      "name": "%",
+      "input": "minecraft:main",
+      "output": "swap",
+      "uniformOverrides": {
+        "BlurDir": [1.0, 0.0]
+      }
+    },
+    {
+      "name": "%",
+      "input": "swap",
+      "output": "minecraft:main",
+      "uniformOverrides": {
+        "BlurDir": [0.0, 1.0]
+      }
+    },
+    {
+      "name": "%",
+      "input": "minecraft:main",
+      "output": "swap",
+      "uniformOverrides": {
+        "BlurDir": [1.0, 0.0]
+      }
+    },
+    {
+      "name": "%",
+      "input": "swap",
+      "output": "minecraft:main",
+      "uniformOverrides": {
+        "BlurDir": [0.0, 1.0]
+      }
+    }
+  ],
+  "uniforms": {
+    "BlurDir": [1.0, 1.0],
+    "radius": [5.0],
+    "progress": [0.0]
+  }
+}
